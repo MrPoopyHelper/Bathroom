@@ -1,0 +1,47 @@
+package com.example.davidramirez.bathroom;
+
+/**
+ * Creates a bathroom object
+ */
+public class Bathroom {
+    public double Lat;
+    public double Long;
+    public float Rating;
+    public String Review;
+
+    //Constructor for bathroom if there isn't a review
+    public Bathroom (double Lat, double Long, float Rating){
+        this.Lat = Lat;
+        this.Long = Long;
+        this.Rating = Rating;
+    }
+
+    //Constructor for bathroom if there is a review
+    public Bathroom (double Lat, double Long, float Rating, String Review){
+        this.Lat = Lat;
+        this.Long = Long;
+        this.Rating = Rating;
+        this.Review = Review;
+    }
+
+    //Retrieves the Latitude of the bathroom
+    public double getLat(){
+        return Lat;
+    }
+
+    //Retrieves the Longitude of the bathroom
+    public double getLong(){
+        return Long;
+    }
+
+    //Retrieves the Rating
+    public float getRating(){
+        return Rating;
+    }
+
+    //Retrieves Review as a string
+    public String getReview(){
+        return Review;
+    }
+
+}
