@@ -5,15 +5,16 @@ package com.example.davidramirez.bathroom;
  */
 public class Bathroom {
     public String Name;
+    public boolean Private;
     public double Lat;
     public double Long;
     public float Rating;
     public String Review;
-    public boolean Private;
 
     //Constructor for bathroom if there isn't a review
-    public Bathroom (String Name, double Lat, double Long, float Rating, boolean Private){
+    public Bathroom (String Name, boolean Private, double Lat, double Long, float Rating){
         this.Name = Name;
+        this.Private = Private;
         this.Lat = Lat;
         this.Long = Long;
         this.Rating = Rating;
@@ -21,13 +22,13 @@ public class Bathroom {
     }
 
     //Constructor for bathroom if there is a review
-    public Bathroom (String Name, double Lat, double Long, float Rating, String Review, boolean Private){
+    public Bathroom (String Name, boolean Private, double Lat, double Long, float Rating, String Review){
         this.Name = Name;
+        this.Private = Private;
         this.Lat = Lat;
         this.Long = Long;
         this.Rating = Rating;
         this.Review = Review;
-        this.Private = Private;
     }
 
     //Retrieves the name of the bathroom
