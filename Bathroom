@@ -4,25 +4,34 @@ package com.example.davidramirez.bathroom;
  * Creates a bathroom object
  */
 public class Bathroom {
+    public String Name;
     public double Lat;
     public double Long;
     public float Rating;
     public String Review;
+    public boolean Private;
 
     //Constructor for bathroom if there isn't a review
-    public Bathroom (double Lat, double Long, float Rating){
+    public Bathroom (String Name, double Lat, double Long, float Rating, boolean Private){
+        this.Name = Name;
         this.Lat = Lat;
         this.Long = Long;
         this.Rating = Rating;
+        this.Private = Private;
     }
 
     //Constructor for bathroom if there is a review
-    public Bathroom (double Lat, double Long, float Rating, String Review){
+    public Bathroom (String Name, double Lat, double Long, float Rating, String Review, boolean Private){
+        this.Name = Name;
         this.Lat = Lat;
         this.Long = Long;
         this.Rating = Rating;
         this.Review = Review;
+        this.Private = Private;
     }
+
+    //Retrieves the name of the bathroom
+    public String getName() { return Name; }
 
     //Retrieves the Latitude of the bathroom
     public double getLat(){
@@ -43,5 +52,8 @@ public class Bathroom {
     public String getReview(){
         return Review;
     }
+
+    //Retrieves the availability of the bathroom
+    public boolean getPrivate() { return Private; }
 
 }
