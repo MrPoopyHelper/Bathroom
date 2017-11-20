@@ -1,0 +1,32 @@
+//Goes in the MainActivity
+/**
+     * Retrieves the locations of the bathrooms from the database and displays them on the map
+     */
+    private void getLocations() {
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference();
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot snapm: dataSnapshot.getChildren()) {
+                    Marker temp;
+
+                    String name = snapm.child("name").getValue(String.class);
+                    Double latitude = snapm.child("lat").getValue(Double.class);
+                    Double longitude = snapm.child("long").getValue(Double.class);
+                    String review = snapm.child("review").getValue(String.class);
+
+                    temp = mMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title(name).snippet(review));
+                    temp.showInfoWindow();
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError firebaseError) {
+                throw firebaseError.toException();
+
+            }
+        });
+    }
