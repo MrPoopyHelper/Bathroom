@@ -1,20 +1,26 @@
-package com.example.davidramirez.bathroom;
+package com.example.beta.bathroomfinder;
+
+/**
+ * Created by davidramirez on 2017-11-06.
+ */
 
 /**
  * Creates a bathroom object
  */
 public class Bathroom {
-    public String Name;
-    public boolean Private;
-    public double Lat;
-    public double Long;
-    public float Rating;
-    public String Review;
+    private String Name;
+    private boolean Private;
+    private boolean gInclusive;
+    private double Lat;
+    private double Long;
+    private float Rating;
+    private String Review;
 
     //Constructor for bathroom if there isn't a review
-    public Bathroom (String Name, boolean Private, double Lat, double Long, float Rating){
+    public Bathroom (String Name, boolean Private, boolean gInclusive, double Lat, double Long, float Rating){
         this.Name = Name;
         this.Private = Private;
+        this.gInclusive = gInclusive;
         this.Lat = Lat;
         this.Long = Long;
         this.Rating = Rating;
@@ -22,9 +28,10 @@ public class Bathroom {
     }
 
     //Constructor for bathroom if there is a review
-    public Bathroom (String Name, boolean Private, double Lat, double Long, float Rating, String Review){
+    public Bathroom (String Name, boolean Private, boolean gInclusive, double Lat, double Long, float Rating, String Review){
         this.Name = Name;
         this.Private = Private;
+        this.gInclusive = gInclusive;
         this.Lat = Lat;
         this.Long = Long;
         this.Rating = Rating;
@@ -56,5 +63,8 @@ public class Bathroom {
 
     //Retrieves the availability of the bathroom
     public boolean getPrivate() { return Private; }
+
+    //Retrieves whether or not the bathroom is gender inclusive
+    public boolean getInclusive() { return gInclusive; }
 
 }
