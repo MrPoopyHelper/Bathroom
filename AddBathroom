@@ -1,0 +1,77 @@
+package com.example.beta.bathroomfinder;
+
+import android.content.Intent;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RatingBar;
+
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+public class addBathroom extends AppCompatActivity {
+
+    private FirebaseDatabase database;
+    private DatabaseReference myRef;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_bathroom);
+
+        Button button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Bathroom bathroom;
+                String Name;
+                boolean Private;
+                boolean gInclusive;
+                double Lat;
+                double Long;
+                float Rating;
+                String Review;
+                EditText editText;
+                CheckBox checkBox;
+                RatingBar ratingBar;
+
+                editText = (EditText) findViewById(R.id.bathroomName);
+                Name = editText.getText().toString();
+
+                checkBox = (CheckBox) findViewById(R.id.checkBox);
+                Private = checkBox.isChecked();
+
+                checkBox = (CheckBox) findViewById(R.id.checkBox2);
+                gInclusive = checkBox.isChecked();
+
+                editText = (EditText) findViewById(R.id.Latitude);
+                Lat = Double.parseDouble(editText.getText().toString());
+
+                editText = (EditText) findViewById(R.id.Longitude);
+                Long = Double.parseDouble(editText.getText().toString());
+
+                ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+                Rating = ratingBar.getRating();
+
+                editText = (EditText) findViewById(R.id.reviewField);
+                Review = editText.getText().toString();
+                if (Review != null) {
+                    bathroom = new Bathroom (Name, Private, gInclusive, Lat, Long, Rating, Review);
+                }
+                else
+                    bathroom = new Bathroom (Name, Private, gInclusive, Lat, Long, Rating);
+
+                database = FirebaseDatabase.getInstance();
+                myRef = database.getReference();//"https://mrpoopyh-eab65.firebaseio.com/Bathrooms"
+                myRef.push().setValue(bathroom);
+
+                finish();
+            }
+        });
+
+    }
+}
