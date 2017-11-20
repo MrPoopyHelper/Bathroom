@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Login"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Login" />
+        <item
+            android:id="@+id/fav_bathrooms"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Your Bathrooms" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Settings" />
+        <item
+            android:id="@+id/add_bathroom"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Add a Bathroom" />
+        <item
+            android:id="@+id/help"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Help" />
+        <item
+            android:id="@+id/terms_of_use"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Terms of Use" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send Feedback" />
+        </menu>
+    </item>
+
+</menu>
